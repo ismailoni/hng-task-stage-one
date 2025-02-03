@@ -1,11 +1,16 @@
 let targetColor = null;
 let score = 0;
 let life = 3;
+let cachedColors = null;
 
 async function loadColors() {
+    if (cachedColors) {
+        return cachedColors;
+    }
     const response = await fetch("colors.json");
     const data = await response.json();
-    return data.colors;
+    cachedColors = data.colors;
+    return cachedColors;
 }
 
 async function getRandomColors() {
@@ -13,7 +18,6 @@ async function getRandomColors() {
     let shuffled = colors.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 6);
 }
-
 
 async function startNewGame(resetScore = false) {
     if (resetScore) score = 0;
@@ -74,4 +78,3 @@ function handleGuess(selectedColor) {
 }
 
 window.onload = startNewGame;
-
