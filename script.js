@@ -101,7 +101,7 @@ function handleGuess(selectedColor) {
         }, 500);
     } else {
         life--;
-        gameStatus.innerText = "Wrong!! ❌❌❌";
+        gameStatus.innerText = "❌ Oops! That's incorrect!";
         gameStatus.style.color = "red";
         gameStatus.classList.add("shake");
 
