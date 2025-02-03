@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="fade-in">Guess The Color!!!</h1>
-    <p class="fade-in">Life: <span id="life"></span></p>
-    <div class="color-box fade-in" id="targetColor" data-testid="colorBox"></div>
-    <p class="fade-in" data-testid="gameInstructions">Guess the correct color!</p>
-    <p id="gameStatus" class="fade-in" data-testid="gameStatus">...</p>
-    <div class="color-options" id="colorOptions" data-testid="colorOption"></div>
-    <p class="fade-in">Score: <span id="score" data-testid="score">0</span></p>
-    <button class="new-game-btn fade-in" onclick="startNewGame(true)" data-testid="newGameButton">New Game</button>
-    
-    <div id="popup" class="popup"></div>
+    <div id="loadingScreen" class="loading-screen">
+        <h1>Game Loading...</h1>
+        <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+    </div>
+    <main id="gameContainer">
+        <h1 class="game-instruct fade-in" data-testid="gameInstructions">Guess the correct color!</h1>
+        <div class="score-board">
+            <p class="fade-in">Score: <span id="score" data-testid="score">0</span></p>
+            <p class="fade-in">Life: <span id="life"></span></p>
+        </div>
+        <div class="color-box fade-in" id="targetColor" data-testid="colorBox"></div>
+        <p id="gameStatus" class="fade-in game-sta" data-testid="gameStatus"></p>
+        <div class="color-options" id="colorOptions" data-testid="colorOption"></div>
+        <button class="new-game-btn fade-in" onclick="startNewGame(true)"  data-testid="newGameButton">New Game</button>
+        
+        <div id="popup" class="popup"></div>
+    </main>
 
     <script src="script.js"></script>
 </body>
