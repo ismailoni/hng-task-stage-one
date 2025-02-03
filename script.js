@@ -56,7 +56,7 @@ function handleGuess(selectedColor) {
     } else {
         life = life - 1;
         document.getElementById("gameStatus").innerText = "Wrong! Try again. ❌";
-        if (life == 0) {
+        if (life == -1) {
            const popup = document.getElementById("popup");
            popup.innerHTML = message();
            popup.style.display = "block";
