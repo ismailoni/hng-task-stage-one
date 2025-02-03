@@ -36,6 +36,15 @@ async function startNewGame(resetScore = false) {
     });
 }
 
+function message() {
+    return `
+        <span>
+            <h1>Game Over!! 😭</h1>
+            <p>Your score is: ${score} </p>
+            <button id="restartButton" class="new-game-btn fade-in">Restart</button>
+            </span>
+    `;
+}
 
 function handleGuess(selectedColor) {
     if (selectedColor === targetColor) {
@@ -47,31 +56,21 @@ function handleGuess(selectedColor) {
     } else {
         life = life - 1;
         document.getElementById("gameStatus").innerText = "Wrong! Try again. ❌";
-        setTimeout(() => {
-            startNewGame();
-        }, 1000)
-    }
-    document.getElementById("score").innerText = score;
-
-    if (life == 0) {
-        const popup = document.getElementById("popup");
-        popup.innerHTML = message();
-        popup.style.display = "block";
-        document.getElementById("restartButton").addEventListener("click", () => {
-            window.location.reload();
-        });
-        
-        function message() {
-            return `
-                <span>
-                    <h1>Game Over!! 😭</h1>
-                    <p>Your score is: ${score} </p>
-                    <button id="restartButton" class="new-game-btn fade-in">Restart</button>
-                </span>
-            `;
-        }
+        if (life == 0) {
+           const popup = document.getElementById("popup");
+           popup.innerHTML = message();
+           popup.style.display = "block";
+           document.getElementById("restartButton").addEventListener("click", () => {
+              window.location.reload();
+           })
+        } else {
+            setTimeout(() => {
+                startNewGame();
+             }, 1000)
+           }        
     
         }
+    document.getElementById("score").innerText = score;
 }
 
 window.onload = startNewGame;
