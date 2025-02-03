@@ -65,6 +65,7 @@ function handleGuess(selectedColor) {
             return `
                 <span>
                     <h1>Game Over!! 😭</h1>
+                    <p>Your score is: ${score} </p>
                     <button id="restartButton" class="new-game-btn fade-in">Restart</button>
                 </span>
             `;
