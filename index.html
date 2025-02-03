@@ -9,11 +9,12 @@
 <body>
     <h1 class="fade-in">Guess The Color!!!</h1>
     <p class="fade-in">Life: <span id="life"></span></p>
-    <div class="color-box fade-in" id="targetColor"></div>
-    <p id="gameStatus" class="fade-in">Guess the correct color!</p>
-    <div class="color-options" id="colorOptions"></div>
-    <p class="fade-in">Score: <span id="score">0</span></p>
-    <button class="new-game-btn fade-in" onclick="startNewGame(true)">New Game</button>
+    <div class="color-box fade-in" id="targetColor" data-testid="colorBox"></div>
+    <p class="fade-in" data-testid="gameInstructions">Guess the correct color!</p>
+    <p id="gameStatus" class="fade-in" data-testid="gameStatus">Guess the correct color!</p>
+    <div class="color-options" id="colorOptions" data-testid="colorOption"></div>
+    <p class="fade-in">Score: <span id="score" data-testid="score">0</span></p>
+    <button class="new-game-btn fade-in" onclick="startNewGame(true)" data-testid="newGameButton">New Game</button>
     
     <div id="popup" class="popup"></div>
 
