@@ -47,7 +47,9 @@ function handleGuess(selectedColor) {
     } else {
         life = life - 1;
         document.getElementById("gameStatus").innerText = "Wrong! Try again. ❌";
-        startNewGame();
+        setTimeout(() => {
+            startNewGame();
+        }, 1000)
     }
     document.getElementById("score").innerText = score;
 
