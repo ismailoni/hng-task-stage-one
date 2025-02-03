@@ -79,37 +79,47 @@ async function startNewGame(resetScore = false) {
 function message() {
     return `
         <span>
-            <h1>Game Over!! 😭</h1>
+            <h1>Game Over!!</h1><h2>😭</h2>
             <p>Your score is: ${score} </p>
             <button id="restartButton" class="new-game-btn fade-in">Restart</button>
-            </span>
+        </span>
     `;
 }
 
 function handleGuess(selectedColor) {
+    const gameStatus = document.getElementById("gameStatus");
+
     if (selectedColor === targetColor) {
         score++;
-        document.getElementById("gameStatus").innerText = "Correct! 🎉";
+        gameStatus.innerText = "Correct! 🎉";
+        gameStatus.style.color = "green";
+        gameStatus.classList.add("fade-in-scale");
+
         setTimeout(() => {
+            gameStatus.classList.remove("fade-in-scale");
             startNewGame();
-        }, 500)
+        }, 500);
     } else {
-        life = life - 1;
-        document.getElementById("gameStatus").innerText = "Wrong!! ❌❌❌";
-        if (life == -1) {
-           const popup = document.getElementById("popup");
-           popup.innerHTML = message();
-           popup.style.display = "block";
-           document.getElementById("restartButton").addEventListener("click", () => {
-               window.location.reload();
-            })
-        } else {
-            setTimeout(() => {
-                startNewGame();
-            }, 500)
-        }        
-        
+        life--;
+        gameStatus.innerText = "Wrong!! ❌❌❌";
+        gameStatus.style.color = "red";
+        gameStatus.classList.add("shake");
+
+        setTimeout(() => {
+            gameStatus.classList.remove("shake");
+            startNewGame();
+        }, 500);
+
+        if (life === -1) {
+            const popup = document.getElementById("popup");
+            popup.innerHTML = message();
+            popup.style.display = "block";
+            document.getElementById("restartButton").addEventListener("click", () => {
+                window.location.reload();
+            });
+        }
     }
-    button.disabled
+
     document.getElementById("score").innerText = score;
 }
+
