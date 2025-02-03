@@ -40,7 +40,7 @@ A fun and interactive web game where players need to guess the color shown in a 
 3. Open the index.html file in your browser to play the game.
 
 
-Acknowledgements
+## Acknowledgements
 The game was created by Ismail Oni as part of the HNG Internship Stage 1 Frontend Task.
 Thank you to freepik for the game icon and design inspiration.
 Feel free to contribute, report issues, or improve the game in any way!
