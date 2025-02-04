@@ -58,6 +58,7 @@ async function getRandomColors() {
 async function startNewGame(resetScore = false) {
     if (resetScore) {
         score = 0;
+        life = 3;
         document.getElementById("score").innerText = score;
         document.getElementById("life").innerText = "❤️".repeat(life);
         document.getElementById("gameStatus").innerText = "...";
