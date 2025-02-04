@@ -117,9 +117,11 @@ function handleGuess(selectedColor) {
             const popup = document.getElementById("popup");
             popup.innerHTML = message();
             popup.style.display = "block";
+            document.getElementById("new-game-btn").style.visibility = "hidden";
             document.getElementById("restartButton").addEventListener("click", () => {
                 startNewGame(true);
                 popup.style.display = "none";
+                document.getElementById("new-game-btn").style.visibility = "visible";
             });
         }
     }
