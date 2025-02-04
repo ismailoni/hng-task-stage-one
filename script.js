@@ -72,6 +72,7 @@ async function startNewGame(resetScore = false) {
     colors.forEach(color => {
         const button = document.createElement("button");
         button.className = "color-option fade-in";
+        button.setAttribute("data-testid", "colorOption");
         button.style.backgroundColor = color;
         button.onclick = () => handleGuess(color);
         colorOptionsDiv.appendChild(button);
