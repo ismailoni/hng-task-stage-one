@@ -118,7 +118,8 @@ function handleGuess(selectedColor) {
             popup.innerHTML = message();
             popup.style.display = "block";
             document.getElementById("restartButton").addEventListener("click", () => {
-                window.location.reload();
+                startNewGame(true);
+                popup.style.display = "none";
             });
         }
     }
