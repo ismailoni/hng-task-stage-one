@@ -58,13 +58,11 @@ async function getRandomColors() {
 async function startNewGame(resetScore = false) {
     if (resetScore) {
         score = 0;
-        life = 3;
-        document.getElementById("score").innerText = score;
-        document.getElementById("life").innerText = "❤️".repeat(life);
-        document.getElementById("gameStatus").innerText = "...";
-        
+        life = 3;          
     } 
-    
+    document.getElementById("score").innerText = score;
+    document.getElementById("gameStatus").innerText = "...";
+    document.getElementById("life").innerText = "❤️".repeat(life);
     let colors = await getRandomColors();
     targetColor = colors[Math.floor(Math.random() * colors.length)];
     document.getElementById("targetColor").style.backgroundColor = targetColor;
