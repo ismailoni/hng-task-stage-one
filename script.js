@@ -91,7 +91,7 @@ function message() {
 
 function handleGuess(selectedColor) {
     const gameStatus = document.getElementById("gameStatus");
-
+    button.setAttribute("disabled")
     if (selectedColor === targetColor) {
         score++;
         gameStatus.innerText = "Correct! 🎉";
