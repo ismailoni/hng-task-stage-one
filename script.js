@@ -91,13 +91,13 @@ function message() {
 
 function handleGuess(selectedColor) {
     const gameStatus = document.getElementById("gameStatus");
-    button.setAttribute("disabled")
+    
     if (selectedColor === targetColor) {
         score++;
         gameStatus.innerText = "Correct! 🎉";
         gameStatus.style.color = "green";
         gameStatus.classList.add("fade-in-scale");
-
+        button.setAttribute("disabled")
         setTimeout(() => {
             gameStatus.classList.remove("fade-in-scale");
             startNewGame();
@@ -107,7 +107,7 @@ function handleGuess(selectedColor) {
         gameStatus.innerText = "❌ Oops! That's incorrect!";
         gameStatus.style.color = "red";
         gameStatus.classList.add("shake");
-
+        button.setAttribute("disabled")
         setTimeout(() => {
             gameStatus.classList.remove("shake");
             startNewGame();
